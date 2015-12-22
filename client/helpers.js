@@ -1,4 +1,5 @@
 /*global Chats*/
+/*global users*/
 
 Template.chat_page.helpers({
     
@@ -9,8 +10,7 @@ Template.chat_page.helpers({
     
     other_user:function(){
       return "";
-    } 
-
+    }
 });
 
 Template.available_user_list.helpers({
@@ -35,3 +35,21 @@ Template.available_user.helpers({
       }
     }
 });
+
+
+Template.chat_message.helpers({
+    isUser:function(userId){
+      if (userId == Meteor.userId()){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+});
+
+$(document).ready(function(){
+    $("#last").scrollTop = $("#last").scrollHeight;
+});
+
+
