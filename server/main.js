@@ -1,3 +1,4 @@
+/*global Chats*/
 Meteor.startup(function () {
     if (!Meteor.users.findOne()){
       for (var i=1;i<9;i++){
@@ -9,3 +10,23 @@ Meteor.startup(function () {
       }
     } 
 });
+
+
+Meteor.publish("Chats",function(){
+  
+  return  Chats.find({
+    $or:[
+      {
+        user1Id:this.userId
+      },
+      {
+        user2Id:this.userId
+      }
+      ]
+  });
+});
+
+/*global users*/
+Meteor.publish("users",function(){
+  return Meteor.users.find();
+})

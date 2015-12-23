@@ -1,6 +1,7 @@
 /*global Chats*/
 /*global users*/
-
+Meteor.subscribe("Chats");
+Meteor.subscribe("users");
 Template.chat_page.helpers({
     
     messages:function(){
@@ -48,8 +49,6 @@ Template.chat_message.helpers({
     }
 });
 
-$(document).ready(function(){
-    $("#last").scrollTop = $("#last").scrollHeight;
-});
+
 
 
