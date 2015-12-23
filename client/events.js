@@ -42,3 +42,13 @@ Template.available_user.events({
         }
     }
 })
+/*global Emoji*/
+Template.emojiList.events({
+   "click .js-emoji":function(event){
+       $("#chat").val($("#chat").val() + 
+       Emoji.convert(event.target.title).split(" ")[2].split("=")[1].
+       replace(/"/g,""));
+   } 
+});
+
+

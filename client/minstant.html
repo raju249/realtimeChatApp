@@ -104,11 +104,13 @@
 				</div>
 				<div class="panel-footer">
 					<form class="js-send-chat form-inline">
-						<input class="input form-control" type="text" name="chat"
+						<input class="input form-control" type="text" id="chat"
 						placeholder="type a message here...">
+						{{> emojiList}}
 						<button class="btn btn-default">
 						<span class="glyphicon glyphicon-send">
-						</span> Send</button>
+						</span> Send
+						</button>
 					</form>
 				</div>
 			</div>
@@ -123,7 +125,7 @@
 		<div class="col-xs-12 col-sm-12 col-sm-push-9">
 			<div class="talk-bubble tri-right btm-right">
 			  <div class="talktext">
-			    <img class="small-img" src="/{{avatar}}"><p>{{text}}.</p>
+			    <img class="small-img" src="/{{avatar}}"><p>{{ >emoji text}}.</p>
 			  </div>
 			</div>
 		</div>
@@ -131,11 +133,30 @@
 		<div class="col-xs-12 col-sm-12">
 			<div class="talk-bubble tri-right left-top">
 		  		<div class="talktext">
-		    		<img class="small-img img-responsive" src="/{{avatar}}"><p>{{text}}.</p>
+		    		<img class="small-img img-responsive" src="/{{avatar}}">
+		    		<p>{{ >emoji text}}.</p>
 		  		</div>
 			</div>
 		</div>
 	{{/if }}
+</template>
+
+<template name="emojiList">
+	<div class="btn-group dropup">
+          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Emoticons
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          	<div class="row emojis">
+          		{{#each emojis}}
+          		<div class="col-xs-2">
+          			<li class="js-emoji">{{>emoji name}}</li>
+          		</div>
+          		{{/each}}
+          	</div>
+          </ul>
+        </div>
 </template>
 
 
