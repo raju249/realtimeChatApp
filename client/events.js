@@ -29,7 +29,7 @@ Template.chat_page.events({
       Meteor.call("insert_chat",chat,Session.get("chatId"));
     }
  }
-})
+});
 
 Template.available_user.events({
     "click .chatlink":function(){

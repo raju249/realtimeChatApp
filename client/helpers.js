@@ -41,8 +41,9 @@ var emoji_icons = [
   {
     name:":pensive:"
   }
-  ]
-
+];
+  
+  
 Meteor.subscribe("users");
 Template.chat_page.helpers({
     
