@@ -2,18 +2,18 @@
 /*global Chats*/
 Meteor.methods({
     insert_chat:function(chat,id){
-        if (true){
-             Chats.update(chat._id, chat);
+        if (chat._id == null){
+            return false;
         }
         else{
-            console.log("You are not authorized!!")
+            Chats.update(chat._id, chat);
         }
     }
 });
 
 Chats.allow({
     insert:function(chat){
-        if(chat.user1Id == this.userId || chat.user2Id == this.userId){
+        if((chat.user1Id == this.userId || chat.user2Id == this.userI) && chat._id != undefined){
             return true;
         }
         else{
